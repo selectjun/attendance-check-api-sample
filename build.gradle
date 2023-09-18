@@ -33,11 +33,16 @@ dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j'
 	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 	implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer'
-	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+	implementation ('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client') {
+		exclude group: "org.springframework.cloud", module: "spring-cloud-starter-ribbon"
+		exclude group: "com.netflix.ribbon", module: "ribbon-eureka"
+	}
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation ('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: "org.junit.vintage", module: "junit-vintage-engine"
+	}
 }
 
 dependencyManagement {
