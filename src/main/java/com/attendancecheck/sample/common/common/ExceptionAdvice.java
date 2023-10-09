@@ -1,4 +1,4 @@
-package com.attendancecheck.sample.board.common;
+package com.attendancecheck.sample.common.common;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
